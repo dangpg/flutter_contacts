@@ -182,6 +182,7 @@ class Contact {
   Iterable<PostalAddress> postalAddresses = [];
   Uint8List avatar;
   DateTime birthday;
+  String birthdayString;
 
   String initials() {
     return ((this.givenName?.isNotEmpty == true ? this.givenName[0] : "") +
@@ -212,6 +213,7 @@ class Contact {
     } catch (e) {
       birthday = null;
     }
+    birthdayString = m['birthday'];
   }
 
   static Map _toMap(Contact contact) {
@@ -248,7 +250,8 @@ class Contact {
       "phones": phones,
       "postalAddresses": postalAddresses,
       "avatar": contact.avatar,
-      "birthday": birthday
+      "birthday": birthday,
+      "birthdayString": contact.birthdayString,
     };
   }
 
